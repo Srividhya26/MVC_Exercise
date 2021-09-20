@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script type="text/javascript">
+
+@*Retrieve the seconds, minutes, and hours values from the Session which we have set in the Controller*@
+var seconds = @context.Session.GetString("SessionSeconds");
+var minutes = @context.HttpContext.Session.GetString("SessionMinutes");
+var hours = @context.HttpContext.Session.GetString("SessionHours");
+@*Store the seconds, minutes, and hours in the sessionStorage locally in client side*@
+sessionStorage.SessionSeconds = seconds;
+sessionStorage.SessionMinutes = minutes;
+sessionStorage.SessionHours = hours;
+var ts;
+function CountDownSessionTime() {
+if (Number(sessionStorage.SessionSeconds) > 0) {
+sessionStorage.SessionSeconds = Number(sessionStorage.SessionSeconds) - 1;
+}
+else
+if (Number(sessionStorage.SessionSeconds) == 0) {
+sessionStorage.SessionSeconds = 60;
+sessionStorage.SessionMinutes = Number(sessionStorage.SessionMinutes) - 1;
+}
+if (Number(sessionStorage.SessionMinutes) == 0 && Number(sessionStorage.SessionHours) > 0) {
+sessionStorage.SessionHours = Number(sessionStorage.SessionHours) - 1;
+minutes = 60;
+}
+document.getElementById("txtShowTime").innerHTML = Number(sessionStorage.SessionHours) + " : " + Number(sessionStorage.SessionMinutes) + " : " + Number(sessionStorage.SessionSeconds);
+ts = setTimeout("CountDownSessionTime()", 1000);
+if (Number(sessionStorage.SessionHours) == 0 && Number(sessionStorage.SessionMinutes) == 0 && Number(sessionStorage.SessionSeconds) == 0) {
+clearTimeout(ts);
+window.location.href = "@Url.Action("Login","Base")";
+}
+}
+window.onload = CountDownSessionTime;
+</script>
+

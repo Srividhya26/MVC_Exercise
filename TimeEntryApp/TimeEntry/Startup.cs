@@ -15,6 +15,7 @@ using BusinessLogic;
 using DataAccessLayer.Access;
 using DataAccessLayer;
 using BusinessObjectLayer.Models;
+using BusinessObjectLayer.Data;
 
 namespace TimeEntry
 {
@@ -45,11 +46,14 @@ namespace TimeEntry
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDbContext<TimeEntryAppContext>(options => options.UseSqlServer(
+                Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddScoped<AccountBL>();
             services.AddScoped<AccountDAL>();
             services.AddScoped<EntryBL>();
             services.AddScoped<EntryDAL>();
-            services.AddScoped<TimeEntryAppContext>();
+            //services.AddScoped<TimeEntryAppContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

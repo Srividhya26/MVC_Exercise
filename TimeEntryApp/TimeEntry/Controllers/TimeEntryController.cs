@@ -15,19 +15,20 @@ namespace Entry.Controllers
     public class TimeEntryController : Controller
     {
         private readonly EntryBL _entryBL;
-        private readonly UserManager<IdentityUser> _user;
-        public TimeEntryController(EntryBL entryBL, UserManager<IdentityUser> user)
+        private readonly AccountBL _accountBL;
+        
+        public TimeEntryController(EntryBL entryBL, AccountBL accountBL)
         {
             _entryBL = entryBL;
-            _user = user;
+            _accountBL = accountBL;
         }
 
         [Authorize]
-        public IActionResult Index()
+        public IActionResult Index(IdentityUser model)
         {
-            ViewBag.User = _entryBL.GetUser(User.Identity.Name);
-            //ViewBag.UserId = _user.GetUserId(HttpContext.User);
-            return View();
+            ViewBag.UserId = _accountBL.GetId(model.Id);
+
+            return View(model);
         }
 
         public IActionResult CreateEntry()
@@ -47,7 +48,7 @@ namespace Entry.Controllers
             var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
             BusinessObjectLayer.Models.TimeEntry entry = new BusinessObjectLayer.Models.TimeEntry
-            {                    
+            {
                 Date = model.Date,
                 InTime = model.InTime,
                 OutTime = model.OutTime,

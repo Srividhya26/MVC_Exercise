@@ -1,4 +1,5 @@
-﻿using BusinessObjectLayer.Models;
+﻿using BusinessObjectLayer.Data;
+using BusinessObjectLayer.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,28 +13,30 @@ namespace DataAccessLayer.Access
     public class EntryDAL
     {
         private readonly TimeEntryAppContext _db;
-        public EntryDAL(TimeEntryAppContext db)
+        private readonly AppDbContext _appDb;
+        public EntryDAL(TimeEntryAppContext db,AppDbContext appDb)
         {
             this._db = db;
+            _appDb = appDb;
         }
 
         public TimeEntry GetEntry(string id)
         {
-            var entries = _db.TimeEntries.Find(id);
+            var entries = _db.Entries.Find(id);
 
             return entries;
         }
 
         public List<TimeEntry> GetEntry()
         {
-            var entries = _db.TimeEntries.ToList();
+            var entries = _db.Entries.ToList();
 
             return entries;
         }
 
         public void SetEntry(TimeEntry entry)
         {
-            _db.TimeEntries.Add(entry);
+            _db.Entries.Add(entry);
         }
 
         public void SetBreak(IList<Break> brks)
@@ -45,11 +48,5 @@ namespace DataAccessLayer.Access
             }
         }
 
-        public AspNetUser GetUser(string name)
-        {
-            SqlParameter pName = new SqlParameter("@Email", name);
-            var existingUser = _db.AspNetUsers.FromSqlRaw($"select * from aspnetusers where Email = @Email", pName).FirstOrDefault();
-            return existingUser;
-        }
     }
 }

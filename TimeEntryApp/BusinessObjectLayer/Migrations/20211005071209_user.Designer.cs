@@ -4,14 +4,16 @@ using BusinessObjectLayer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BusinessObjectLayer.Migrations
 {
     [DbContext(typeof(TimeEntryAppContext))]
-    partial class TimeEntryAppContextModelSnapshot : ModelSnapshot
+    [Migration("20211005071209_user")]
+    partial class user
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,26 +58,14 @@ namespace BusinessObjectLayer.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("date")
-                        .HasColumnName("Date_Of_Birth");
-
                     b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -83,16 +73,11 @@ namespace BusinessObjectLayer.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
                     b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -110,12 +95,9 @@ namespace BusinessObjectLayer.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex(new[] { "NormalizedEmail" }, "EmailIndex");
 
                     b.ToTable("AspNetUsers");
                 });

@@ -40,9 +40,6 @@ namespace BusinessLogic
             _entryDAL.SetBreak(brk);
         }
 
-        public AspNetUser GetUser(string name)
-        {
-            return _entryDAL.GetUser(name);
-        }
+      
     }
 }

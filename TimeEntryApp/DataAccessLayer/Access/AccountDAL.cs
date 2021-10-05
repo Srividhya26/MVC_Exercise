@@ -46,5 +46,11 @@ namespace DataAccessLayer.Access
             var res = SignInResult.Failed;
             return res;
         }
+
+        public async Task<IdentityUser> GetId(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            return user;
+        }
     }
 }

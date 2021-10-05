@@ -21,5 +21,7 @@ namespace BusinessObjectLayer.Models
         [Compare("Password", ErrorMessage = "The password and confirm password does not match")]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
+
+        public bool Admin { get; set; }
     }
 }

@@ -15,7 +15,6 @@ using BusinessLogic;
 using DataAccessLayer.Access;
 using DataAccessLayer;
 using BusinessObjectLayer.Models;
-using BusinessObjectLayer.Data;
 
 namespace TimeEntry
 {
@@ -33,27 +32,23 @@ namespace TimeEntry
         {
             services.AddControllersWithViews();
 
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
+               Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 10;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredUniqueChars = 3;
                 options.Password.RequireNonAlphanumeric = false;
-            })
-            .AddEntityFrameworkStores<AppDbContext>();
-
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDbContext<TimeEntryAppContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("DefaultConnection")));
-
+            }).AddEntityFrameworkStores<AppDbContext>();
+          
             services.AddScoped<AccountBL>();
             services.AddScoped<AccountDAL>();
+
             services.AddScoped<EntryBL>();
             services.AddScoped<EntryDAL>();
-            //services.AddScoped<TimeEntryAppContext>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -15,10 +15,10 @@ namespace TimeEntry.Controllers
     {
         //private readonly AppDbContext _db;
         //private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly AccountBL _accountBL;
 
-        public AuthenticationController(AccountBL acccount,SignInManager<IdentityUser> _SignIn)
+        public AuthenticationController(AccountBL acccount,SignInManager<ApplicationUser> _SignIn)
         {         
             _accountBL = acccount;
             _signInManager = _SignIn;

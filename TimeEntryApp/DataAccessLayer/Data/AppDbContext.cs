@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Data;
+﻿using BusinessObjectLayer.Models;
+using DataAccessLayer.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,7 +16,8 @@ namespace DataAccessLayer
         {
 
         }
-
-        
+        public virtual DbSet<Break> Breaks { get; set; }
+        public virtual DbSet<TimeEntry> Entries { get; set; }
+        public virtual DbSet<ApplicationUser> user { get; set; }
     }
 }

@@ -24,9 +24,9 @@ namespace Entry.Controllers
         }
 
         [Authorize]
-        public IActionResult Index(IdentityUser model)
+        public IActionResult Index(ApplicationUser model)
         {
-            ViewBag.UserId = _accountBL.GetId(model.Id);
+            ViewBag.UserId = _accountBL.GetId(model.Name);
 
             return View(model);
         }

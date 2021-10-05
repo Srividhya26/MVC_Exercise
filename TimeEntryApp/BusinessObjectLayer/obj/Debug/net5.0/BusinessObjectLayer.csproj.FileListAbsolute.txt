@@ -1,0 +1,12 @@
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\bin\Debug\net5.0\BusinessObjectLayer.deps.json
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\bin\Debug\net5.0\BusinessObjectLayer.dll
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\bin\Debug\net5.0\ref\BusinessObjectLayer.dll
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\bin\Debug\net5.0\BusinessObjectLayer.pdb
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\BusinessObjectLayer.csproj.AssemblyReference.cache
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\BusinessObjectLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\BusinessObjectLayer.AssemblyInfoInputs.cache
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\BusinessObjectLayer.AssemblyInfo.cs
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\BusinessObjectLayer.csproj.CoreCompileInputs.cache
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\BusinessObjectLayer.dll
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\ref\BusinessObjectLayer.dll
+C:\Users\srividhyav\source\repos\TimeEntryApp\BusinessObjectLayer\obj\Debug\net5.0\BusinessObjectLayer.pdb

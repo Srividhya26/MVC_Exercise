@@ -1,4 +1,4 @@
-﻿using BusinessObjectLayer.Data;
+﻿
 using BusinessObjectLayer.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -12,31 +12,30 @@ namespace DataAccessLayer.Access
 {
     public class EntryDAL
     {
-        private readonly TimeEntryAppContext _db;
+       
         private readonly AppDbContext _appDb;
-        public EntryDAL(TimeEntryAppContext db,AppDbContext appDb)
-        {
-            this._db = db;
+        public EntryDAL(AppDbContext appDb)
+        {           
             _appDb = appDb;
         }
 
         public TimeEntry GetEntry(string id)
         {
-            var entries = _db.Entries.Find(id);
+            var entries = _appDb.Entries.Find(id);
 
             return entries;
         }
 
         public List<TimeEntry> GetEntry()
         {
-            var entries = _db.Entries.ToList();
+            var entries = _appDb.Entries.ToList();
 
             return entries;
         }
 
         public void SetEntry(TimeEntry entry)
         {
-            _db.Entries.Add(entry);
+            _appDb.Entries.Add(entry);
         }
 
         public void SetBreak(IList<Break> brks)
@@ -44,7 +43,7 @@ namespace DataAccessLayer.Access
 
             foreach (var brk in brks)
             {
-                _db.Breaks.Add(brk);
+                _appDb.Breaks.Add(brk);
             }
         }
 

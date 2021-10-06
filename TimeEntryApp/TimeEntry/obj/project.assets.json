@@ -2469,7 +2469,8 @@
           "Microsoft.EntityFrameworkCore": "5.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.Extensions.Configuration.Json": "5.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "compile": {
           "bin/placeholder/BusinessObjectLayer.dll": {}

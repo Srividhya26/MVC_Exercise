@@ -1,5 +1,6 @@
 ﻿
 using BusinessObjectLayer.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace DataAccessLayer.Access
 {
@@ -14,9 +16,11 @@ namespace DataAccessLayer.Access
     {
        
         private readonly AppDbContext _appDb;
-        public EntryDAL(AppDbContext appDb)
+        private readonly UserManager<ApplicationUser> _user;
+        public EntryDAL(AppDbContext appDb, UserManager<ApplicationUser> user)
         {           
             _appDb = appDb;
+            _user = user;
         }
 
         public TimeEntry GetEntry(string id)
@@ -47,5 +51,24 @@ namespace DataAccessLayer.Access
             }
         }
 
+        public IEnumerable<TimeEntry> GetId(ApplicationUser values)
+        {
+            List<TimeEntry> entries = new List<TimeEntry>();
+            _appDb.Entry(values).Collection(x => x.Entries).Load();
+            foreach (TimeEntry entry in values.Entries)
+            {
+                List<Break> breaks = new List<Break>();
+                _appDb.Entry(entry).Collection(em => em.Breaks).Load();
+                foreach (Break b in entry.Breaks)
+                {
+                    breaks.Add(b);
+                }
+
+                entry.Breaks = breaks;
+                entries.Add(entry);
+            }
+
+            return entries;
+        }
     }
 }

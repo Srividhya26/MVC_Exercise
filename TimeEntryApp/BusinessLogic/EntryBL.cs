@@ -40,6 +40,10 @@ namespace BusinessLogic
             _entryDAL.SetBreak(brk);
         }
 
-      
+        public List<TimeEntry> GetId(ApplicationUser user)
+        {
+            var result = _entryDAL.GetId(user).ToList();
+            return result;
+        }
     }
 }

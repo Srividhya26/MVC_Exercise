@@ -36,7 +36,7 @@ namespace TimeEntry.Controllers
                 var result = await _accountBL.CheckUser(model);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("CreateEntry","TimeEntry");
+                    return RedirectToAction("Index","TimeEntry");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");

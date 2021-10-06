@@ -39,6 +39,9 @@ namespace BusinessObjectLayer.Models
 
             [InverseProperty(nameof(Break.Entry))]
             public virtual ICollection<Break> Breaks { get; set; }
+
+            [ForeignKey("ApplicationUser")]
+            public virtual ApplicationUser user { get; set; }
         }
     }
 

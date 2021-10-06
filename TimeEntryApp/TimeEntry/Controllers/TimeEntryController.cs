@@ -16,18 +16,37 @@ namespace Entry.Controllers
     {
         private readonly EntryBL _entryBL;
         private readonly AccountBL _accountBL;
+        private readonly UserManager<ApplicationUser> _userManager;
         
-        public TimeEntryController(EntryBL entryBL, AccountBL accountBL)
+        public TimeEntryController(EntryBL entryBL, AccountBL accountBL, UserManager<ApplicationUser> userManager)
         {
             _entryBL = entryBL;
             _accountBL = accountBL;
+            _userManager = userManager;
         }
 
         [Authorize]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            string userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            return View();
+            List<BusinessObjectLayer.Models.TimeEntry> entries = new List<BusinessObjectLayer.Models.TimeEntry>();
+
+            ApplicationUser user;
+
+            var id = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            if (id != null)
+            {
+                user = await this._userManager.FindByIdAsync(id);
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    entries = _entryBL.GetId(user);
+                }
+            }
+
+            return View(entries);
         }
 
         public IActionResult CreateEntry()

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211005164520_newusers")]
-    partial class newusers
+    [Migration("20211006045918_sdhgf")]
+    partial class sdhgf
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -281,23 +281,6 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("BusinessObjectLayer.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("date")
-                        .HasColumnName("Date_Of_Birth");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Gender");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

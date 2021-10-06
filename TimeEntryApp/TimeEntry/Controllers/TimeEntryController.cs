@@ -24,11 +24,10 @@ namespace Entry.Controllers
         }
 
         [Authorize]
-        public IActionResult Index(ApplicationUser model)
+        public IActionResult Index()
         {
-            ViewBag.UserId = _accountBL.GetId(model.Name);
-
-            return View(model);
+            string userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            return View();
         }
 
         public IActionResult CreateEntry()

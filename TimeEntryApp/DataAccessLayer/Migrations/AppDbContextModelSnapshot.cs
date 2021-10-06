@@ -280,23 +280,6 @@ namespace DataAccessLayer.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-                    b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("date")
-                        .HasColumnName("Date_Of_Birth");
-
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Gender");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 

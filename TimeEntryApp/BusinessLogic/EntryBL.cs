@@ -1,4 +1,5 @@
 ﻿using BusinessObjectLayer.Models;
+using BusinessObjectLayer.ViewModel;
 using DataAccessLayer.Access;
 using System;
 using System.Collections.Generic;
@@ -30,14 +31,26 @@ namespace BusinessLogic
             return entries;
         }
 
-        public void SetEntry(TimeEntry entry)
+        public void CreateEntry(ApplicationUser user, TimeEntry entry)
         {
-            _entryDAL.SetEntry(entry);
+            _entryDAL.CreateEntry(user, entry);
         }
 
-        public void SetBreak(IList<Break> brk)
+        //Creating Break
+        public void CreateBreak(ApplicationUser user,int id, Break @break)
         {
-            _entryDAL.SetBreak(brk);
+            _entryDAL.CreateBreak(user,id, @break);
+
+        }
+
+        public void DeleteEntry(ApplicationUser user, int? id)
+        {
+            _entryDAL.DeleteEntry(user, id);
+        }
+
+        public void DeleteBreak(ApplicationUser user, int? id)
+        {
+            _entryDAL.DeleteBreak(user, id);
         }
 
         public List<TimeEntry> GetId(ApplicationUser user)

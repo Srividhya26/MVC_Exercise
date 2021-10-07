@@ -161,3 +161,4 @@ C:\Users\srividhyav\source\repos\TimeEntryApp\TimeEntry\obj\Debug\net5.0\ref\Ent
 C:\Users\srividhyav\source\repos\TimeEntryApp\TimeEntry\obj\Debug\net5.0\Entry.pdb
 C:\Users\srividhyav\source\repos\TimeEntryApp\TimeEntry\obj\Debug\net5.0\Entry.genruntimeconfig.cache
 C:\Users\srividhyav\source\repos\TimeEntryApp\TimeEntry\obj\Debug\net5.0\Razor\Views\Admin\CreateRole.cshtml.g.cs
+C:\Users\srividhyav\source\repos\TimeEntryApp\TimeEntry\obj\Debug\net5.0\Razor\Views\TimeEntry\AddBreak.cshtml.g.cs

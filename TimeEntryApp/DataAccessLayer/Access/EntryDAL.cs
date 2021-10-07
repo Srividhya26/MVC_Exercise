@@ -37,18 +37,17 @@ namespace DataAccessLayer.Access
             return entries;
         }
 
-        public void SetEntry(TimeEntry entry)
+        public void CreateEntry(ApplicationUser user, TimeEntry entry)
         {
-            _appDb.Entries.Add(entry);
+            _appDb.Users.FirstOrDefault(x => x.Id == user.Id).Entries.Add(entry);
+            _appDb.SaveChanges();
         }
 
-        public void SetBreak(IList<Break> brks)
+        //creating breaks
+        public void CreateBreak(ApplicationUser user,int id, Break @break)
         {
-
-            foreach (var brk in brks)
-            {
-                _appDb.Breaks.Add(brk);
-            }
+            _appDb.Entries.FirstOrDefault(x => x.Id == id).Breaks.Add(@break);
+            _appDb.SaveChanges();
         }
 
         public IEnumerable<TimeEntry> GetId(ApplicationUser values)
@@ -69,6 +68,28 @@ namespace DataAccessLayer.Access
             }
 
             return entries;
+        }
+
+        public void DeleteEntry(ApplicationUser user, int? id)
+        {
+
+            var entry = _appDb.Entries.FirstOrDefault(x => x.Id == id);
+            if (entry != null)
+            {
+                _appDb.Users.FirstOrDefault(x => x.Id == user.Id).Entries.Remove(entry);
+                _appDb.SaveChanges();
+
+            }
+        }
+
+        public void DeleteBreak(ApplicationUser user,int? id)
+        {
+            var breaks = _appDb.Breaks.FirstOrDefault(x => x.BreakID == id);
+            if(breaks != null)
+            {
+                _appDb.Breaks.Remove(breaks);
+                _appDb.SaveChanges();
+            }
         }
     }
 }

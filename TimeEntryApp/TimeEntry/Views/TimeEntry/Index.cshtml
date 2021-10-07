@@ -7,6 +7,8 @@
 @model IEnumerable<BusinessObjectLayer.Models.TimeEntry>
 
 
+
+
 <div class="row">
     <div class="col-12">
         <table class="table table-bordered table-striped" style="width: 100%">
@@ -17,31 +19,29 @@
                     <th>  In Time </th>
                     <th> Out Time  </th>
                     <th> Breaks </th>
+                    <th> Add Break </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var entry in Model)
                 {
-                    <tr>
-                        <td> @entry.Id  </td>
-                        <td> @entry.Date </td>
-                        <td> @entry.InTime </td>
-                        <td> @entry.OutTime </td>
-                        <td>                           
-                            @foreach (var b in @entry.Breaks)
-                            {
-                                @b.BreakIn.ToString()
-                                @b.BreakOut.ToString()
-                            }
-                        </td>
-                       
-                        @*<td>
-                            <a asp-action="Update" asp-route-id="@emp.Id" class="btn btn-primary"> Update </a>
-                        </td>
-                        <td>
-                            <a asp-action="Delete" asp-route-id="@emp.Id" class="btn btn-primary" onclick="return confirm('Are you sure to delete the customer')"> Delete </a>
-                        </td>*@
-                    </tr>
+                <tr>
+                    <td> @entry.Id  </td>
+                    <td> @entry.Date </td>
+                    <td> @entry.InTime</td>
+                    <td> @entry.OutTime </td>
+                    <td>
+                        @foreach (var b in @entry.Breaks)
+                        {
+                            <P> Break In :  @b.BreakIn.ToString() </P>
+                            <p> Break Out :  @b.BreakOut.ToString() </p>
+                            <a class="btn" asp-controller="TimeEntry" asp-action="DeleteBreak" asp-route-id="@b.BreakID" title="Delete Break"> Delete  </a>
+                        }
+
+                    </td>
+                    <td width="20%"><a class="btn btn-danger" asp-controller="TimeEntry" asp-action="AddBreak" asp-route-id="@entry.Id" title="add Break"> Add Break </a></td>
+                    <td width="20%"><a class="btn btn-danger" asp-controller="TimeEntry" asp-action="DeleteEntry" asp-route-id="@entry.Id" title="Delete Entry"> Delete  </a></td>
+                </tr>
                 }
             </tbody>
         </table>
@@ -49,16 +49,6 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 <a class="btn" asp-controller="TimeEntry" asp-action="CreateEntry"> Create New Entry </a>
 

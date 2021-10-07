@@ -1,6 +1,7 @@
 ﻿using BusinessLogic;
 using BusinessObjectLayer.Models;
 using BusinessObjectLayer.ViewModel;
+using DataAccessLayer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,19 +18,21 @@ namespace Entry.Controllers
         private readonly EntryBL _entryBL;
         private readonly AccountBL _accountBL;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly AppDbContext _db;
         
-        public TimeEntryController(EntryBL entryBL, AccountBL accountBL, UserManager<ApplicationUser> userManager)
+        public TimeEntryController(EntryBL entryBL, AccountBL accountBL, UserManager<ApplicationUser> userManager, AppDbContext db)
         {
             _entryBL = entryBL;
             _accountBL = accountBL;
             _userManager = userManager;
+            _db = db;
         }
 
         [Authorize]
         public async Task<IActionResult> Index()
         {
             List<BusinessObjectLayer.Models.TimeEntry> entries = new List<BusinessObjectLayer.Models.TimeEntry>();
-
+           
             ApplicationUser user;
 
             var id = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
@@ -51,30 +54,115 @@ namespace Entry.Controllers
 
         public IActionResult CreateEntry()
         {
-            EntryView_Model entry = new EntryView_Model();
-            entry.BreakList.Add(new Break() { TimeEntryId = 1 });
-            return View(entry);
+            return View();        
         }
 
         [HttpPost]
-        public IActionResult CreateEntry(EntryView_Model model)
+        public async Task<IActionResult> CreateEntry(BusinessObjectLayer.Models.TimeEntry entry)
         {
-            var breakList = model.BreakList;
 
-            _entryBL.SetBreak(breakList);
+            ApplicationUser user;
 
-            var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
-            BusinessObjectLayer.Models.TimeEntry entry = new BusinessObjectLayer.Models.TimeEntry
+            if (particularUserId != null)
             {
-                Date = model.Date,
-                InTime = model.InTime,
-                OutTime = model.OutTime,
-            };
+                user = await this._userManager.FindByIdAsync(particularUserId);
 
-            _entryBL.SetEntry(entry);
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _entryBL.CreateEntry(user, entry);
+                }
+            }
 
-            return View("Index");
+            return View(entry);
+        }
+
+
+        [HttpGet]
+        public IActionResult BreakIndex()
+        {
+            IEnumerable<Break> breakList = _db.Breaks;
+
+            return View(breakList);
+        }
+
+        public IActionResult AddBreak()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddBreak(int id, Break @break)
+        {
+            ApplicationUser user;
+
+            var particularUserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (particularUserId != null)
+            {
+                user = await this._userManager.FindByIdAsync(particularUserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _entryBL.CreateBreak(user,id, @break);
+                }
+            }
+
+            return View(@break);
+        }
+
+        public async Task<IActionResult> DeleteEntry(int? id)
+        {
+            ApplicationUser user;
+
+            var UserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (UserId != null)
+            {
+                user = await this._userManager.FindByIdAsync(UserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _entryBL.DeleteEntry(user, id);
+                }
+            }
+            return RedirectToAction("Index");
+
+        }
+
+        public async Task<IActionResult> DeleteBreak(int? id)
+        {
+            ApplicationUser user;
+
+            var UserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            if (UserId != null)
+            {
+                user = await this._userManager.FindByIdAsync(UserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    _entryBL.DeleteBreak(user, id);
+                }
+            }
+            return RedirectToAction("Index");
         }
 
         [Authorize]

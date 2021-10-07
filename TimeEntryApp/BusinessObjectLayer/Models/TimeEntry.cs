@@ -24,24 +24,23 @@ namespace BusinessObjectLayer.Models
 
             [Column(TypeName = "date")]
             [DataType(DataType.Date)]
-            [Required(ErrorMessage = "Date is required")]
+           
             public DateTime? Date { get; set; }
             [Column(TypeName = "datetime")]
 
             [DataType(DataType.Time)]
-            [Required(ErrorMessage = "InTime is required")]
+         
             public DateTime? InTime { get; set; }
             [Column(TypeName = "datetime")]
 
             [DataType(DataType.Time)]
-            [Required(ErrorMessage = "OutTime is required")]
+          
             public DateTime? OutTime { get; set; }
 
             [InverseProperty(nameof(Break.Entry))]
             public virtual ICollection<Break> Breaks { get; set; }
 
-            [ForeignKey("ApplicationUser")]
-            public virtual ApplicationUser user { get; set; }
+          
         }
     }
 

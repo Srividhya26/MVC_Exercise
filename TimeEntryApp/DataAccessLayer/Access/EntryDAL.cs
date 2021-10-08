@@ -91,5 +91,30 @@ namespace DataAccessLayer.Access
                 _appDb.SaveChanges();
             }
         }
+
+        public IEnumerable<TimeEntry> GetMonth(ApplicationUser user,DateTime monthValue)
+        {
+            List<BusinessObjectLayer.Models.TimeEntry> entries = new List<BusinessObjectLayer.Models.TimeEntry>();
+
+            _appDb.Entry(user).Collection(item => item.Entries).Load();
+
+            var entry = user.Entries.Where(x => x.Date.Month == monthValue.Month && x.Date.Year == monthValue.Year);
+
+            foreach (TimeEntry ety in entry)
+            {
+                List<Break> breaks = new();
+                _appDb.Entry(ety).Collection(item => item.Breaks).Load();
+                foreach (Break brk in ety.Breaks)
+                {
+                    breaks.Add(brk);
+                }
+
+                ety.Breaks = breaks;
+                entries.Add(ety);
+            }
+
+            return entries;
+
+        }
     }
 }

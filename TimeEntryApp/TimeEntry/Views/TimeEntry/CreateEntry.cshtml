@@ -5,7 +5,7 @@
 
 @model BusinessObjectLayer.Models.TimeEntry
 
-<h1>CreateEntry</h1>
+@*<h1>CreateEntry</h1>
 
 <h4>Entry</h4>
 <hr />
@@ -56,7 +56,53 @@
             </div>
         </div>
     </div>
-</form>
+</form>*@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card my-3 p-2">
+                <div class="card-header">
+                    <h3 class="mb-0"> Create Entry </h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="TimeEntry" asp-action="CreateEntry">
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-lg-3 col-sm-2 text-sm-end" asp-for="Date"> Date </label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="Date">
+                                <span asp-validation-for="Date" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-lg-3 col-sm-2 text-sm-end" asp-for="InTime"> In Time </label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="InTime">
+                                <span asp-validation-for="InTime" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label class="col-form-label col-lg-3 col-sm-2 text-sm-end" asp-for="OutTime"> Out Time </label>
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="OutTime">
+                                <span asp-validation-for="OutTime" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <div class="col-sm-10 ms-sm-auto">
+                                <input class="btn btn-primary justify-content-center" type="submit" value="Save">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section Scripts

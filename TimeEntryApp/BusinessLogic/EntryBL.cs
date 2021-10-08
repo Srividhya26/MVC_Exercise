@@ -1,5 +1,4 @@
 ﻿using BusinessObjectLayer.Models;
-using BusinessObjectLayer.ViewModel;
 using DataAccessLayer.Access;
 using System;
 using System.Collections.Generic;
@@ -56,6 +55,12 @@ namespace BusinessLogic
         public List<TimeEntry> GetId(ApplicationUser user)
         {
             var result = _entryDAL.GetId(user).ToList();
+            return result;
+        }
+
+        public List<TimeEntry> GetMonth(ApplicationUser user,DateTime monthValue)
+        {
+            var result = _entryDAL.GetMonth(user, monthValue).ToList();
             return result;
         }
     }

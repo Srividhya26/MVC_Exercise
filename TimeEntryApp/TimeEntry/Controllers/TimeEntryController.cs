@@ -28,7 +28,7 @@ namespace Entry.Controllers
             _db = db;
         }
 
-        [Authorize]
+        
         public async Task<IActionResult> Index()
         {
             List<BusinessObjectLayer.Models.TimeEntry> entries = new List<BusinessObjectLayer.Models.TimeEntry>();
@@ -165,10 +165,58 @@ namespace Entry.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize]
-        public IActionResult Admin()
+
+        [HttpGet]
+        public async Task<IActionResult> EmployeeDashboard(DateTime monthValue,TotalBreak breaks)
         {
-            return View();
+            List<BusinessObjectLayer.Models.TimeEntry> entry = new();
+
+            ApplicationUser user;
+
+            var UserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+           
+
+            if (UserId != null)
+            {
+                user = await _userManager.FindByIdAsync(UserId);
+
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    entry = _entryBL.GetMonth(user, monthValue);
+                }
+            }
+
+            return View(entry);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public IActionResult AdminDashboard(BusinessObjectLayer.Models.TimeEntry entry)
+        {
+            List<BusinessObjectLayer.Models.TimeEntry> entries = new List<BusinessObjectLayer.Models.TimeEntry>();
+
+            ApplicationUser user;
+
+            ViewBag.UserId = entry.Id;
+         
+            if (entry != null)
+            {              
+                if (!ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    entries = _entryBL.GetEntry();
+                }
+            }
+
+            return View(entries);
         }
     }
 }

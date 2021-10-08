@@ -25,17 +25,17 @@ namespace BusinessObjectLayer.Models
             [Column(TypeName = "date")]
             [DataType(DataType.Date)]
            
-            public DateTime? Date { get; set; }
+            public DateTime Date { get; set; }
             [Column(TypeName = "datetime")]
 
             [DataType(DataType.Time)]
          
-            public DateTime? InTime { get; set; }
+            public DateTime InTime { get; set; }
             [Column(TypeName = "datetime")]
 
             [DataType(DataType.Time)]
           
-            public DateTime? OutTime { get; set; }
+            public DateTime OutTime { get; set; }
 
             [InverseProperty(nameof(Break.Entry))]
             public virtual ICollection<Break> Breaks { get; set; }

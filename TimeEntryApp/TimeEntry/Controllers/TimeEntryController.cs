@@ -174,9 +174,7 @@ namespace Entry.Controllers
             ApplicationUser user;
 
             var UserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-
-           
-
+         
             if (UserId != null)
             {
                 user = await _userManager.FindByIdAsync(UserId);
@@ -196,14 +194,18 @@ namespace Entry.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpGet]
-        public IActionResult AdminDashboard(BusinessObjectLayer.Models.TimeEntry entry)
+        public async Task<IActionResult> AdminDashboard(BusinessObjectLayer.Models.TimeEntry entry)
         {
             List<BusinessObjectLayer.Models.TimeEntry> entries = new List<BusinessObjectLayer.Models.TimeEntry>();
 
+            var UserId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
             ApplicationUser user;
 
-            ViewBag.UserId = entry.Id;
-         
+            user = await _userManager.FindByIdAsync(UserId);
+
+            ViewBag.UserId = user.Email;
+
             if (entry != null)
             {              
                 if (!ModelState.IsValid)

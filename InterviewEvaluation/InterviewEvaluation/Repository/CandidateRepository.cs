@@ -30,15 +30,15 @@ namespace InterviewEvaluation.Repository
 
             DynamicParameters parameters = new();
 
-            parameters.Add("Id", candidate.CId);
-            parameters.Add("CandidateName", candidate.CandidateName);
-            parameters.Add("ReferralName", candidate.ReferralName);
-            parameters.Add("LastEmployer", candidate.LastEmployer);
-            parameters.Add("LastDesignation", candidate.LastDesignation);
-            parameters.Add("TotalExperience", candidate.TotalExperience);
-            parameters.Add("NoticePeriod", candidate.NoticePeriod);
+            parameters.Add("Name", candidate.Candidate_Name);
+            parameters.Add("ReferralName", candidate.Referral_Name);
+            parameters.Add("CurrentLastEmployer", candidate.Last_Employer);
+            parameters.Add("CurrentLastDesignation", candidate.Last_Designation);
+            parameters.Add("TotalExperience", candidate.Total_Experience);
+            parameters.Add("NoticePeriod", candidate.Notice_Period);
             parameters.Add("Sources", candidate.Sources);
-            parameters.Add("HealthCondition", candidate.HealthCondition);
+            parameters.Add("HealthCondition", candidate.Health_Condition);
+            parameters.Add("Designation", candidate.Last_Designation);
             parameters.Add("Resume", candidate.Resume);
 
             SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameters);
@@ -68,15 +68,15 @@ namespace InterviewEvaluation.Repository
 
             DynamicParameters parameters = new();
 
-            parameters.Add("Name", candidate.CandidateName);
-            parameters.Add("ReferralName", candidate.ReferralName);
-            parameters.Add("CurrentLastEmployer", candidate.LastEmployer);
-            parameters.Add("CurrentLastDesignation", candidate.LastDesignation);
-            parameters.Add("TotalExperience", candidate.TotalExperience);
-            parameters.Add("NoticePeriod", candidate.NoticePeriod);
+            parameters.Add("Name", candidate.Candidate_Name);
+            parameters.Add("ReferralName", candidate.Referral_Name);
+            parameters.Add("CurrentLastEmployer", candidate.Last_Employer);
+            parameters.Add("CurrentLastDesignation", candidate.Last_Designation);
+            parameters.Add("TotalExperience", candidate.Total_Experience);
+            parameters.Add("NoticePeriod", candidate.Notice_Period);
             parameters.Add("Sources", candidate.Sources);
-            parameters.Add("HealthCondition", candidate.HealthCondition);
-            parameters.Add("Designation", candidate.LastDesignation);
+            parameters.Add("HealthCondition", candidate.Health_Condition);
+            parameters.Add("Designation", candidate.Last_Designation);
             parameters.Add("Resume", candidate.Resume);
 
             SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameters);

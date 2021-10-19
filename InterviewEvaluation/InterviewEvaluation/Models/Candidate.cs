@@ -18,30 +18,30 @@ namespace InterviewEvaluation.Models
         }
 
         [Key]
-        //[Column("C_Id")]
+        [Column("C_Id")]
         public int CId { get; set; }
-        //[Column("Referral_Name")]
+        [Column("Referral_Name")]
         [StringLength(25)]
-        public string ReferralName { get; set; }
-        //[Column("Candidate_Name")]
+        public string Referral_Name { get; set; }
+        [Column("Candidate_Name")]
         [StringLength(25)]
-        public string CandidateName { get; set; }
-        //[Column("Last_Employer")]
+        public string Candidate_Name { get; set; }
+        [Column("Last_Employer")]
         [StringLength(25)]
-        public string LastEmployer { get; set; }
-        //[Column("Last_Designation")]
+        public string Last_Employer { get; set; }
+        [Column("Last_Designation")]
         [StringLength(25)]
-        public string LastDesignation { get; set; }
-        //[Column("Total_Experience")]
-        public int? TotalExperience { get; set; }
+        public string Last_Designation { get; set; }
+        [Column("Total_Experience")]
+        public int? Total_Experience { get; set; }
         [StringLength(25)]
         public string Sources { get; set; }
-        //[Column("Health_condition")]
+        [Column("Health_condition")]
         [StringLength(25)]
-        public string HealthCondition { get; set; }
+        public string Health_Condition { get; set; }
         public bool? IsDeleted { get; set; }
-        //[Column("Notice_Period", TypeName = "decimal(18, 0)")]
-        public decimal? NoticePeriod { get; set; }
+        [Column("Notice_Period", TypeName = "decimal(18, 0)")]
+        public decimal? Notice_Period { get; set; }
         [StringLength(250)]
         public string Resume { get; set; }
 

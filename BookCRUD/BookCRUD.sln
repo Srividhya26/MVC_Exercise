@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookPresentation", "BookCRUD\BookPresentation.csproj", "{38F2E901-D7AE-438A-AD88-4F1528D9A07D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookDAL", "BookDAL\BookDAL.csproj", "{29C626CA-7520-4E3F-B495-E74750BF2D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBL", "BookBL\BookBL.csproj", "{6675F22E-BA0A-4170-AF2C-EA62DAC0BFE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38F2E901-D7AE-438A-AD88-4F1528D9A07D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F2E901-D7AE-438A-AD88-4F1528D9A07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F2E901-D7AE-438A-AD88-4F1528D9A07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F2E901-D7AE-438A-AD88-4F1528D9A07D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C626CA-7520-4E3F-B495-E74750BF2D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C626CA-7520-4E3F-B495-E74750BF2D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C626CA-7520-4E3F-B495-E74750BF2D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C626CA-7520-4E3F-B495-E74750BF2D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6675F22E-BA0A-4170-AF2C-EA62DAC0BFE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6675F22E-BA0A-4170-AF2C-EA62DAC0BFE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6675F22E-BA0A-4170-AF2C-EA62DAC0BFE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6675F22E-BA0A-4170-AF2C-EA62DAC0BFE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6F9C350-1C82-4E35-930C-7DE75CDCF126}
+	EndGlobalSection
+EndGlobal

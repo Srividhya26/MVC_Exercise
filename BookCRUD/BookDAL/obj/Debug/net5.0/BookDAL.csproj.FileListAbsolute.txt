@@ -1,0 +1,15 @@
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\bin\Debug\net5.0\BookDAL.deps.json
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\bin\Debug\net5.0\BookDAL.runtimeconfig.json
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\bin\Debug\net5.0\BookDAL.runtimeconfig.dev.json
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\bin\Debug\net5.0\BookDAL.dll
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\bin\Debug\net5.0\ref\BookDAL.dll
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\bin\Debug\net5.0\BookDAL.pdb
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.csproj.AssemblyReference.cache
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.AssemblyInfoInputs.cache
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.AssemblyInfo.cs
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.csproj.CoreCompileInputs.cache
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.dll
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\ref\BookDAL.dll
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.pdb
+C:\Users\srividhyav\source\repos\BookCRUD\BookDAL\obj\Debug\net5.0\BookDAL.genruntimeconfig.cache

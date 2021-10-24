@@ -22,9 +22,9 @@ namespace BookBL.Logics
             _authorDAL.AddAuthor(author);
         }
 
-        public void UpdateAuthor(Author author,int id)
+        public void UpdateAuthor(int id, Author author)
         {
-            _authorDAL.UpdateAuthor(author,id);
+            _authorDAL.UpdateAuthor(id,author);
         }
 
         public void DeleteAuthor(int id)

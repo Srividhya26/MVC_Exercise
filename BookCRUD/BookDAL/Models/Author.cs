@@ -15,10 +15,12 @@ namespace BookDAL.Models
         {
             Books = new HashSet<Book>();
         }
-
+        
+        [Required]
         [Key]
         [Column("Author_Id")]
-        public int AuthorId { get; set; }
+        public int Author_Id { get; set; }
+        [Required(ErrorMessage = "Name is required")]
         [StringLength(50)]
         public string Name { get; set; }
         [Column(TypeName = "datetime")]

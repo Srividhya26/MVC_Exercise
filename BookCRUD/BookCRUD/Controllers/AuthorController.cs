@@ -17,11 +17,11 @@ namespace BookPresentation.Controllers
             this._authorBL = authorBL;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //IEnumerable<Author> empList = 
+            IEnumerable<Author> authorList = await _authorBL.GetAllAuthors();
 
-            return View();
+            return View(authorList);
         }
 
         public IActionResult CreateAuthor()
@@ -52,12 +52,19 @@ namespace BookPresentation.Controllers
         {
            if(ModelState.IsValid)
             {
-                _authorBL.UpdateAuthor(author, id);
+                _authorBL.UpdateAuthor(id, author);
 
                 return RedirectToAction("Index");
             }
 
             return View(author);
         }
+    
+
+        public void DeleteAuthor(int id)
+        {
+             _authorBL.DeleteAuthor(id);
+        }
+
     }
 }

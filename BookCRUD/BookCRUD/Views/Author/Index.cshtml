@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<BookDAL.Models.Author>
+
+<div class="row">
+    <div class="col-2">
+        <a asp-controller="Author" asp-action="CreateAuthor" class="btn btn-primary"> Add Author </a>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered table-striped" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th> S.NO </th>
+                        <th> Name </th>
+                        <th> Created At </th>
+                        <th> Modified At  </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int AuthorId = 1;
+                    }
+
+                    @foreach (var author in Model)
+                    {
+                        <tr>
+                            <td> @author.Author_Id  </td>
+                            <td> @author.Name </td>
+                            <td> @author.CreatedAt </td>
+                            <td> @author.ModifiedAt </td>
+                            <td>
+                                <a asp-action="UpdateAuthor" asp-route-id="@author.Author_Id" class="btn btn-primary"> Update </a>
+                            </td>
+                            <td>
+                                <a asp-action="DeleteAuthor" asp-route-id="@author.Author_Id" class="btn btn-primary" onclick="return confirm('Are you sure to delete the customer')"> Delete </a>
+                            </td>
+                        </tr>
+                        {
+                            AuthorId++;
+                        }
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+</div>
+

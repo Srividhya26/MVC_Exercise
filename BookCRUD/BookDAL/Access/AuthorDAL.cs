@@ -33,15 +33,15 @@ namespace BookDAL.Access
             SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameter);
         }
 
-        public void UpdateAuthor(Author author,int id)
+        public void UpdateAuthor(int id,Author author)
         {
-            using IDbConnection dbConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConection"));
+            using IDbConnection dbConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
 
             string sp = "Sp_UpdateAuthor";
 
             DynamicParameters parameter = new();
 
-            parameter.Add("Id", id);
+            parameter.Add("id", id);
             parameter.Add("Name", author.Name);
 
             SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameter);

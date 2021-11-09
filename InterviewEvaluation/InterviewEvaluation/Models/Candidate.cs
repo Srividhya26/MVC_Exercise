@@ -19,7 +19,7 @@ namespace InterviewEvaluation.Models
 
         [Key]
         [Column("C_Id")]
-        public int CId { get; set; }
+        public int C_Id { get; set; }
         [Column("Referral_Name")]
         [StringLength(25)]
         public string Referral_Name { get; set; }

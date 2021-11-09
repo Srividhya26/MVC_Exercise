@@ -1,0 +1,22 @@
+.container {
+    padding: 2rem 0rem;
+  }
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  .action-button-previous {
+    width: 100px;
+    background:black;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+.action-button-previous:hover, 
+.action-button-previous:focus{
+    box-shadow: 0 0 0 2px red, 0 0 0 3px black;
+}

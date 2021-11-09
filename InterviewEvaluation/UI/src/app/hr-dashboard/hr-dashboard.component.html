@@ -1,0 +1,148 @@
+<div class="sidebar-container">
+  <div class="sidebar-logo">
+    Interview Evaluation - HR 
+  </div>
+  <ul class="sidebar-navigation">
+    <li class="header">Navigation</li>
+    <li>
+      <a href="#">
+        <i class="fa fa-home" aria-hidden="true"></i> Homepage
+      </a>
+    </li>
+    <li>
+      <a routerLink="/hrdashboard" routerLinkActive="active">
+        <i class="fa fa-tachometer" aria-hidden="true"></i> HR
+      </a>
+    </li>
+    <li>
+      <a routerLink="" routerLinkActive="active">
+        <i class="fa fa-tachometer" aria-hidden="true"></i> Interviewer
+      </a>
+    </li>
+    <li class="header">Another Menu</li>
+    <li>
+      <a href="#">
+        <i class="fa fa-users" aria-hidden="true"></i> Friends
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-cog" aria-hidden="true"></i> Settings
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="container" style="display: flex; flex-direction: column; justify-content: center;">
+<div style="text-align: center;" class="container">
+    <h1 style="padding-top: 15px; margin-bottom: 15px;"> List of Candidates </h1>
+</div>
+<div class="wrapper">
+    <div class="btn btn-primary"> 
+        <a routerLink="/addCandidate" routerLinkActive="active" style="color: white;"> Add Candidate </a>
+     </div>
+     <div class="btn btn-primary" style="margin-left: 10px;"> 
+      <a routerLink="/schedule" routerLinkActive="active" style="color: white;"> Schedule Interview  </a>
+   </div>
+</div>
+<div style="padding-left: 130px;" class="container table-responsive py-5"> 
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"> Profile </th>
+          <th scope="col">Candidate Name</th>
+          <th scope="col">Referral Name</th>
+          <th scope="col">Last Employer</th>
+          <th scope="col"> Desig <br> nation </th>
+          <th scope="col">Total Experience</th>
+          <th scope="col">Notice Period </th>
+          <th scope="col"> Resume </th>
+          <th scope="col"> Medical Condition </th>
+          <th scope="col"> Results </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;">
+          <th scope="row">1</th>
+          <td><img src = "http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" class="img-fluid img-thumbnail"></td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>ABC solutions</td>
+          <td> UI Designer </td>
+          <td>2</td>
+          <td>3</td>
+          <td>markresume.txt</td>
+          <td>No</td>
+          <td><a routerLink="/result" routerLinkActive="active" class="btn btn-primary btn-sm"> Result </a></td>
+        </tr>
+        <tr style="text-align: center;">
+          <th scope="row">2</th>
+          <td><img src = "https://st2.depositphotos.com/3369547/11481/v/950/depositphotos_114817672-stock-illustration-avatar-man-icon-businesspeople-design.jpg" class="img-fluid img-thumbnail"></td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>Simson Software</td>
+          <td> Full Stack Developer</td>
+          <td>2</td>
+          <td>1</td>
+          <td>jacobresume.txt</td>
+          <td>No</td>
+          <td><a routerLink="/result" routerLinkActive="active" class="btn btn-primary btn-sm"> Result </a></td>
+        </tr>
+        <tr style="text-align: center;">
+          <th scope="row">3</th>
+          <td><img src = "https://www.clipartmax.com/png/small/293-2931307_account-avatar-male-man-person-profile-icon-profile-icons.png" class="img-fluid img-thumbnail"></td>
+          <td>Larry</td>
+          <td> Thomson </td>
+          <td> Abrek Software</td>
+          <td> Software Engineer</td>
+          <td>3</td>
+          <td>6</td>
+          <td>larryresume.txt</td>
+          <td>Yes</td>
+          <td><a routerLink="/result" routerLinkActive="active" class="btn btn-primary btn-sm"> Result </a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <!--Pagination -->
+      <nav class="my-4 pt-2">
+          <ul class="pagination pagination-circle pg-blue mb-0">
+              <!--First-->
+              <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>
+              <!--Arrow left-->
+              <li class="page-item disabled">
+                  <a class="page-link" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                      </a>
+              </li>
+              <!--Numbers-->
+              <li class="page-item active"><a class="page-link">1</a></li>
+              <li class="page-item"><a class="page-link">2</a></li>
+              <li class="page-item"><a class="page-link">3</a></li>
+              <li class="page-item"><a class="page-link">4</a></li>
+              <li class="page-item"><a class="page-link">5</a></li>
+              <!--Arrow right-->
+              <li class="page-item">
+                  <a class="page-link" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                      </a>
+              </li>
+              <!--First-->
+              <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
+          </ul>
+      </nav>
+      <!--/Pagination -->
+  </div>
+  </div>
+</div>
+
+
+ 

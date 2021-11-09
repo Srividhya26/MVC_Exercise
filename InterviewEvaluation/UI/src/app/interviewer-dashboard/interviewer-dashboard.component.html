@@ -1,0 +1,135 @@
+<div class="sidebar-container">
+    <div class="sidebar-logo">
+      Interview Evaluation - Interviewer
+    </div>
+    <ul class="sidebar-navigation">
+      <li class="header">Navigation</li>
+      <li>
+        <a href="#">
+          <i class="fa fa-home" aria-hidden="true"></i> Homepage
+        </a>
+      </li>
+      <li>
+        <a routerLink="" routerLinkActive="active">
+          <i class="fa fa-tachometer" aria-hidden="true"></i> HR
+        </a>
+      </li>
+      <li>
+        <a routerLink="interviewer" routerLinkActive="active">
+          <i class="fa fa-tachometer" aria-hidden="true"></i> Interviewer
+        </a>
+      </li>
+      <li class="header">Another Menu</li>
+      <li>
+        <a href="#">
+          <i class="fa fa-users" aria-hidden="true"></i> Friends
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-cog" aria-hidden="true"></i> Settings
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> Information
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="container" style="display: flex; flex-direction: column; justify-content: center;">
+  <div style="text-align: center;" class="container">
+      <h1 style="padding-top: 15px; margin-bottom: 15px;"> List of Candidates </h1>
+  </div>
+  <div class="wrapper">
+
+  </div>
+  <div style="padding-left: 130px;" class="container table-responsive py-5"> 
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"> # </th>
+            <th scope="col"> Candidate Name </th>
+            <th scope="col"> Assessment Name </th>
+            <th scope="col"> Date </th>
+            <th scope="col"> Time </th>
+            <th scope="col"> Rating </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="text-align: center;">
+            <th scope="row">1</th>
+            <td> Mark Otto </td>
+            <td> Profile Screening </td>
+            <td> 11/11/2021 </td>
+            <td> 13:00 </td>     
+            <td>
+                <a routerLink="/rating" routerLinkActive="active" style="text-decoration: none; color: black;" >
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </a>
+            </td>
+          </tr>
+          <tr style="text-align: center;">
+            <th scope="row">2</th>   
+            <td>Jacob Thornton</td>
+            <td> Technical Telephonic Interview </td>
+            <td> 13/11/2021 </td>
+            <td> 11:00 </td>      
+            <td>
+                <a routerLink="/rating" routerLinkActive="active" style="text-decoration: none; color: black;" >
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </a>
+            </td>     
+          </tr>
+          <tr style="text-align: center;">
+            <th scope="row">3</th>          
+            <td>Larry Thomson</td>
+            <td>F2F Interview</td>
+            <td> 08/11/2021 </td>
+            <td> 16:00 </td>     
+            <td>
+                <a routerLink="/rating" routerLinkActive="active" style="text-decoration: none; color: black;" >
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </a>
+            </td> 
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <!--Pagination -->
+        <nav class="my-4 pt-2">
+            <ul class="pagination pagination-circle pg-blue mb-0">
+                <!--First-->
+                <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>
+                <!--Arrow left-->
+                <li class="page-item disabled">
+                    <a class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                </li>
+                <!--Numbers-->
+                <li class="page-item active"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">4</a></li>
+                <li class="page-item"><a class="page-link">5</a></li>
+                <!--Arrow right-->
+                <li class="page-item">
+                    <a class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                </li>
+                <!--First-->
+                <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
+            </ul>
+        </nav>
+        <!--/Pagination -->
+    </div>
+    </div>
+  </div>
+  
+  
+   
